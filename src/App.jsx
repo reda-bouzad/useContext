@@ -2,8 +2,10 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./Home";
 import About from "./About";
 import { UserContext } from "./CreateContext";
+import { useState } from "react";
 
 const App = () => {
+  const [name,setName] = useState("Reda");
   return ( 
     <>
       <Router>
@@ -17,7 +19,7 @@ const App = () => {
             </li>
           </ul>
         </nav>
-        <UserContext.Provider value="hello from context">
+        <UserContext.Provider value={{name, setName}}>
 
         <Routes>
             <Route path="/" element={<Home />} />
